@@ -874,7 +874,7 @@ void wifi_configure(char* response, size_t length)
 void wifi_reconnect(char* response, size_t length)
 {
   char* commands[] = { "AT+CWQAP", "AT+CWJAP?", "AT+CWJAP=\"AP_NAME_HERE\",\"AP_PASS_HERE\"", "AT+CWJAP?", NULL };
-  char* needle[] = { NULL, "No AP", NULL, "+CWJAP:\"PRIVATE2.4\"" };
+  char* needle[] = { NULL, "No AP", NULL, "+CWJAP:\"AP_NAME_HERE\"" };
   int i = 0;
   int return_code = 0;
   while(commands[i] != NULL)
