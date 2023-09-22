@@ -11,7 +11,7 @@ In watering\_kit.ino, you'll need to replace a few values.  I should have made t
 
 Search for the following items in watering\_kit.ino and replace them accordingly
 
-* SERVER\_IP\_HERE : IP address of the host you run the nodejs express server on.
-* SERVER\_PORT\_HERE : Whatever port you configure the nodejs express server to run on
-* AP\_NAME\_HERE : Router broadcast name
-* AP\_PASS\_HERE : Router password
+* __SERVER\_IP\_HERE__ : IP address of the host you run the nodejs express server on.
+* __SERVER\_PORT\_HERE__ : Whatever port you configure the nodejs express server to run on
+* __AP\_NAME\_HERE__ : Router broadcast name
+* __AP\_PASS\_HERE__ : Router password
