@@ -1,0 +1,17 @@
+{
+  "name": "Plant Dashboard",
+  "version": "1.0.0",
+  "description": "Web GUI plant dashboard for Elecrow Arduino plant watering system equipped with ESP8266-01 wifi card.",
+  "main": "elecrow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keaton Bench",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "node-fetch": "^2.6.9"
+  }
+}

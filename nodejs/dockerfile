@@ -1,0 +1,26 @@
+FROM ubuntu:latest
+
+RUN apt update
+RUN apt install -y ca-certificates curl gnupg
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+RUN echo 'deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main' | tee /etc/apt/sources.list.d/nodesource.list
+RUN apt update
+RUN apt install nodejs -y
+
+ARG UID=2000
+ARG GID=2000
+
+WORKDIR /root/
+RUN printf '#!/bin/bash\nchown -R elecrow:elecrow /home/elecrow/\nsu - -s /bin/bash elecrow -c "node elecrow.js"' > run.sh
+RUN chmod +x run.sh
+RUN useradd -m -U -u ${UID} -s /sbin/nologin elecrow
+RUN groupmod -g ${GID} elecrow
+WORKDIR /home/elecrow/
+COPY . /home/elecrow/
+RUN npm install -g npm@latest
+RUN npm install
+RUN npm audit fix
+WORKDIR /root/
+
+CMD ["bash", "./run.sh"]
